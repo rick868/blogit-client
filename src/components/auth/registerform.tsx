@@ -56,7 +56,7 @@ const RegisterForm = () => {
           onChange={handleChange}
         />
         <TextField
-          name="userName"
+          name="username"
           label="User Name"
           fullWidth
           margin="normal"
@@ -64,7 +64,7 @@ const RegisterForm = () => {
           onChange={handleChange}
         />
         <TextField
-          name="emailAddress"
+          name="email"
           label="Email Address"
           type="email"
           fullWidth

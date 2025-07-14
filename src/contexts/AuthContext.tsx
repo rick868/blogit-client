@@ -59,7 +59,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, [navigate]);
 
   const register = useCallback(async (formData: RegisterFormData) => {
-    const response = await api.post('/auth/register', formData);
+    const payload = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      userName: formData.userName,
+      emailAddress: formData.emailAddress,
+      password: formData.password,
+    };
+    const response = await api.post('/auth/register', payload);
     setUser(response.data.user);
     localStorage.setItem('token', response.data.token);
     navigate('/blogs');

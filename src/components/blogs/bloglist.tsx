@@ -1,6 +1,6 @@
 import { Grid, Box } from '@mui/material';
-import BlogCard from './BlogCard';
-import { Blog } from '../../types';
+import BlogCard from './blogcard';
+import type { Blog } from '../../types';
 
 interface BlogListProps {
   blogs: Blog[];
@@ -11,7 +11,10 @@ const BlogList = ({ blogs }: BlogListProps) => {
     <Grid container spacing={2}>
       {blogs.map((blog) => (
         <Box
-         key={blog.id} xs={12} sm={6} md={4}>
+         key={blog.id} sx={{ display: 'flex',
+                             flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center' }}>
           <BlogCard {...blog} />
         </Box>
       ))}
