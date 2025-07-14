@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
-import BlogList from '../blogs/blogList';
-import { Blog } from '../../types';
+import BlogList from '../blogs/bloglist';
+import type { Blog } from '../../types';
 
 interface UserBlogsProps {
   blogs: Blog[];

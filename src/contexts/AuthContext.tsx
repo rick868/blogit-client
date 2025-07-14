@@ -21,6 +21,7 @@ interface RegisterFormData {
 
 interface AuthContextType {
   user: User | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
   login: (emailAddressOrUserName: string, password: string) => Promise<void>;
   register: (formData: RegisterFormData) => Promise<void>;
   logout: () => void;
@@ -79,7 +80,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, [navigate]);
 
   return (
-    <AuthContext.Provider value={useMemo(() => ({ user, login, register, logout }), [user, login, register, logout])}>
+    <AuthContext.Provider value={useMemo(() => ({ user, setUser, login, register, logout }), [user, setUser, login, register, logout])}>
       {children}
     </AuthContext.Provider>
   );
