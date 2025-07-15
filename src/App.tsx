@@ -21,7 +21,7 @@ function App() {
   const [showSideNavbar, setShowSideNavbar] = useState(false);
 
   const handleBlogItClick = () => {
-    setShowSideNavbar(true);
+    setShowSideNavbar((prev) => !prev);
   };
 
   return (
