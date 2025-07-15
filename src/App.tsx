@@ -13,19 +13,26 @@ import BlogEditPage from './pages/blogs/blogeditpage';
 import ProfilePage from './pages/user/profilepage';
 import UserProfilePage from './pages/user/userprofilepage';
 import ProtectedRoute from './components/common/protectedroute';
+import { useState } from 'react';
 
 const theme = createTheme();
 
 function App() {
+  const [showSideNavbar, setShowSideNavbar] = useState(false);
+
+  const handleBlogItClick = () => {
+    setShowSideNavbar(true);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
         <AuthProvider>
           <Box sx={{ display: 'flex' }}>
-            <SideNavbar />
+            {showSideNavbar && <SideNavbar />}
             <Box sx={{ flexGrow: 1 }}>
-              <Header />
+              <Header onBlogItClick={handleBlogItClick} />
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />

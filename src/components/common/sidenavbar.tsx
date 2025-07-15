@@ -10,11 +10,12 @@ const SideNavbar = () => {
   return (
     <Box
       sx={{
-        width: 250,
-        height: '100vh',
+        width: 200,
+        height: '80vh',
         bgcolor: 'background.paper',
         borderRight: '1px solid #ddd',
         position: 'fixed',
+        marginTop: '20px',
         top: 0,
         left: 0,
         pt: 2,

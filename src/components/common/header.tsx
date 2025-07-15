@@ -1,7 +1,8 @@
-import { AppBar, Toolbar, Typography, Button, Box, InputBase } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Box, InputBase, IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import SearchIcon from '@mui/icons-material/Search';
+import HomeIcon from '@mui/icons-material/Home';
 import { styled, alpha } from '@mui/material/styles';
 
 const Search = styled('div')(({ theme }) => ({
@@ -33,7 +34,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
- 
+    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -46,16 +47,29 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Header = () => {
+const Header = ({ onBlogItClick }: { onBlogItClick: () => void }) => {
   const { user, logout } = useAuth();
 
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+        <IconButton
+          color="inherit"
+          component={Link}
+          to="/"
+          aria-label="home"
+          sx={{ mr: 1 }}
+          onClick={onBlogItClick}
+        >
+          <HomeIcon />
+        </IconButton>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1, cursor: 'pointer' }}
+          onClick={onBlogItClick}
+        >         
             BlogIt
-          </Link>
         </Typography>
         <Search>
           <SearchIconWrapper>
