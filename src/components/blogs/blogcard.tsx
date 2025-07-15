@@ -7,6 +7,7 @@ interface BlogCardProps {
   synopsis: string;
   featuredImage: string;
   user?: {
+    id: string;
     firstName: string;
     lastName: string;
   };
@@ -38,7 +39,11 @@ const BlogCard = ({ id, title, synopsis, featuredImage, user }: BlogCardProps) =
             </Typography>
           </Box>
         )}
-        <Link to={`/blogs/${id}`}>Read More</Link>
+        {user ? (
+          <Link to={`/users/${user.id}`}>Read More</Link>
+        ) : (
+          <Link to={`/blogs/${id}`}>Read More</Link>
+        )}
       </CardContent>
     </Card>
   );

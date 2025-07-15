@@ -10,6 +10,7 @@ import BlogDetailPage from './pages/blogs/blogdetailspage';
 import BlogNewPage from './pages/blogs/blognewpage';
 import BlogEditPage from './pages/blogs/blogeditpage';
 import ProfilePage from './pages/user/profilepage';
+import UserProfilePage from './pages/user/userprofilepage';
 import ProtectedRoute from './components/common/protectedroute';
 
 const theme = createTheme();
@@ -43,6 +44,7 @@ function App() {
                 <ProfilePage />
               </ProtectedRoute>
             } />
+            <Route path="/users/:userId" element={<UserProfilePage />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
