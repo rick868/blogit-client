@@ -4,6 +4,7 @@ export interface User {
   lastName: string;
   userName: string;
   emailAddress: string;
+  profileImage?: string;
 }
 
 export interface Blog {

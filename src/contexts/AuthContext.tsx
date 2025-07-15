@@ -2,14 +2,7 @@ import { createContext, useState, useEffect, useMemo, useContext, useCallback } 
 import type { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-
-interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  userName: string;
-  emailAddress: string;
-}
+import type { User } from '../types';
 
 interface RegisterFormData {
   firstName: string;

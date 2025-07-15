@@ -25,7 +25,7 @@ const BlogNewPage = () => {
   return (
     <Container>
       <Typography variant="h4" component="h1" gutterBottom>
-        Create New Blog Post
+        Create New Blog
       </Typography>
       <BlogEditor onSubmit={handleSubmit} />
     </Container>
