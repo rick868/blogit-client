@@ -15,7 +15,7 @@ const SideNavbar = () => {
         bgcolor: 'background.paper',
         borderRight: '1px solid #ddd',
         position: 'fixed',
-        marginTop: '20px',
+        marginTop: '60px',
         top: 0,
         left: 0,
         pt: 2,
