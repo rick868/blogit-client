@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { CssBaseline, ThemeProvider, createTheme, Box } from '@mui/material';
 import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/common/header';
+import SideNavbar from './components/common/sidenavbar';
 import HomePage from './pages/homepage';
 import LoginPage from './pages/auth/login';
 import RegisterPage from './pages/auth/register';
@@ -21,31 +22,36 @@ function App() {
       <CssBaseline />
       <BrowserRouter>
         <AuthProvider>
-          <Header />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/blogs" element={<BlogsPage />} />
-            <Route path="/blogs/:id" element={<BlogDetailPage />} />
-            
-            <Route path="/new-blog" element={
-              <ProtectedRoute>
-                <BlogNewPage />
-              </ProtectedRoute>
-            } />
-            <Route path="/blogs/:id/edit" element={
-              <ProtectedRoute>
-                <BlogEditPage />
-              </ProtectedRoute>
-            } />
-            <Route path="/profile" element={
-              <ProtectedRoute>
-                <ProfilePage />
-              </ProtectedRoute>
-            } />
-            <Route path="/users/:userId" element={<UserProfilePage />} />
-          </Routes>
+          <Box sx={{ display: 'flex' }}>
+            <SideNavbar />
+            <Box sx={{ flexGrow: 1 }}>
+              <Header />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/blogs" element={<BlogsPage />} />
+                <Route path="/blogs/:id" element={<BlogDetailPage />} />
+                
+                <Route path="/new-blog" element={
+                  <ProtectedRoute>
+                    <BlogNewPage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/blogs/:id/edit" element={
+                  <ProtectedRoute>
+                    <BlogEditPage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/profile" element={
+                  <ProtectedRoute>
+                    <ProfilePage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/users/:userId" element={<UserProfilePage />} />
+              </Routes>
+            </Box>
+          </Box>
         </AuthProvider>
       </BrowserRouter>
     </ThemeProvider>
