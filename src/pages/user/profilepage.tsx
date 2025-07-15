@@ -11,7 +11,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchUserBlogs = async () => {
       try {
-        const response = await api.get('/user/blogs');
+        const response = await api.get('/blogs/user');
         setUserBlogs(response.data);
       } catch (error) {
         console.error('Error fetching user blogs:', error);
