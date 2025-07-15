@@ -7,8 +7,8 @@ import { useAuth } from '../../contexts/AuthContext';
 
 interface User {
   id: string;
-  firstName: string;
-  lastName: string;
+  firstName : string,
+  lastName: string,
 }
 
 interface BlogPost {
@@ -83,7 +83,22 @@ const BlogDetailPage = () => {
           >
             Edit
           </Button>
-          <Button variant="outlined" color="error">
+          <Button 
+            variant="outlined" 
+            color="error"
+            onClick={async () => {
+              if (window.confirm('Are you sure you want to delete this blog?')) {
+                try {
+                  await api.delete(`/blogs/${id}`);
+                  alert('Blog deleted successfully');
+                  window.location.href = '/blogs';
+                } catch (error) {
+                  console.error('Error deleting blog:', error);
+                  alert('Failed to delete blog');
+                }
+              }
+            }}
+          >
             Delete
           </Button>
         </Box>

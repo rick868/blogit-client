@@ -22,7 +22,7 @@ const BlogsPage = () => {
   return (
     <Container>
       <Typography variant="h4" component="h1" gutterBottom>
-        All Blog Posts
+          Blog Posts
       </Typography>
       <BlogList blogs={blogs} />
     </Container>

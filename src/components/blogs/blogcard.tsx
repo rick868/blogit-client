@@ -39,11 +39,7 @@ const BlogCard = ({ id, title, synopsis, featuredImage, user }: BlogCardProps) =
             </Typography>
           </Box>
         )}
-        {user ? (
-          <Link to={`/users/${user.id}`}>Read More</Link>
-        ) : (
-          <Link to={`/blogs/${id}`}>Read More</Link>
-        )}
+        <Link to={`/blogs/${id}`}>Read More</Link>
       </CardContent>
     </Card>
   );
