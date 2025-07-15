@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 interface RegisterFormData {
   firstName: string;
   lastName: string;
-  userName: string;
-  emailAddress: string;
+  username: string;
+  email: string;
   password: string;
 }
 
@@ -15,8 +15,8 @@ const RegisterForm = () => {
   const [formData, setFormData] = useState<RegisterFormData>({
     firstName: '',
     lastName: '',
-    userName: '',
-    emailAddress: '',
+    username: '',
+    email: '',
     password: ''
   });
   const { register } = useAuth();
@@ -60,7 +60,7 @@ const RegisterForm = () => {
           label="User Name"
           fullWidth
           margin="normal"
-          value={formData.userName}
+          value={formData.username}
           onChange={handleChange}
         />
         <TextField
@@ -69,7 +69,7 @@ const RegisterForm = () => {
           type="email"
           fullWidth
           margin="normal"
-          value={formData.emailAddress}
+          value={formData.email}
           onChange={handleChange}
         />
         <TextField

@@ -14,15 +14,15 @@ interface User {
 interface RegisterFormData {
   firstName: string;
   lastName: string;
-  userName: string;
-  emailAddress: string;
+  username: string;
+  email: string;
   password: string;
 }
 
 interface AuthContextType {
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
-  login: (emailAddressOrUserName: string, password: string) => Promise<void>;
+  login: (emailOrUsername: string, password: string) => Promise<void>;
   register: (formData: RegisterFormData) => Promise<void>;
   logout: () => void;
 }
@@ -63,8 +63,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const payload = {
       firstName: formData.firstName,
       lastName: formData.lastName,
-      userName: formData.userName,
-      emailAddress: formData.emailAddress,
+      username: formData.username,
+      email: formData.email,
       password: formData.password,
     };
     const response = await api.post('/auth/register', payload);
