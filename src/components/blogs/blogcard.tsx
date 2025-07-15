@@ -6,13 +6,13 @@ interface BlogCardProps {
   title: string;
   synopsis: string;
   featuredImage: string;
-  author: {
+  user?: {
     firstName: string;
     lastName: string;
   };
 }
 
-const BlogCard = ({ id, title, synopsis, featuredImage, author }: BlogCardProps) => {
+const BlogCard = ({ id, title, synopsis, featuredImage, user }: BlogCardProps) => {
   return (
     <Card sx={{ maxWidth: 345, m: 2 }}>
       <CardMedia
@@ -28,14 +28,16 @@ const BlogCard = ({ id, title, synopsis, featuredImage, author }: BlogCardProps)
         <Typography variant="body2" color="text.secondary">
           {synopsis}
         </Typography>
-        <Box sx={{ display: 'flex', alignItems: 'center', mt: 2 }}>
-          <Avatar sx={{ mr: 1 }}>
-            {author.firstName.charAt(0)}{author.lastName.charAt(0)}
-          </Avatar>
-          <Typography variant="body2">
-            {author.firstName} {author.lastName}
-          </Typography>
-        </Box>
+        {user && (
+          <Box sx={{ display: 'flex', alignItems: 'center', mt: 2 }}>
+            <Avatar sx={{ mr: 1 }}>
+              {user.firstName.charAt(0)}{user.lastName.charAt(0)}
+            </Avatar>
+            <Typography variant="body2">
+              {user.firstName} {user.lastName}
+            </Typography>
+          </Box>
+        )}
         <Link to={`/blogs/${id}`}>Read More</Link>
       </CardContent>
     </Card>
