@@ -25,9 +25,6 @@ const ProfilePage = () => {
 
   return (
     <Container>
-      <Typography variant="h4" component="h1" gutterBottom>
-        My Profile
-      </Typography>
       
       <Box mb={4}>
         <Typography variant="h5" gutterBottom>
