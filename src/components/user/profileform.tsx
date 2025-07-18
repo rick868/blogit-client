@@ -25,11 +25,11 @@ const ProfileForm = () => {
       setUploading(true);
       setError(null);
       try {
-        const file = e.target.files[0];
+        const file = e.target?.files[0];
         const formDataUpload = new FormData();
         formDataUpload.append('image', file);
 
-        const response = await api.post('/api/upload/image', formDataUpload, {
+        const response = await api.post('https://blogit-backend-yidw.onrender.com/api/upload/image', formDataUpload, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
 
