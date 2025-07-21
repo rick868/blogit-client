@@ -17,7 +17,7 @@ const Footer = () => {
     >
       <Typography variant="body2" color="text.secondary">
         {'© '}
-        <Link color="inherit" href="https://example.com/">
+        <Link color="inherit" href="https://blogit-client-7faq.vercel.app/">
           BlogIt
         </Link>{' '}
         {new Date().getFullYear()}
